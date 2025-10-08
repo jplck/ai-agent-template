@@ -116,6 +116,19 @@ The launch configuration is defined in `.vscode/launch.json`:
 }
 ```
 
+#### Option C: Run DevUI via CLI
+
+You can also launch the Agent Framework DevUI directly from the command line without writing code. The DevUI provides an interactive web interface for testing and debugging your agents.
+
+```bash
+# Run DevUI pointing to your agents directory
+devui ./src --port=8093
+```
+
+Once started, the DevUI will be available at `http://localhost:8093` (or your specified port). You can interact with your agents through the web interface, view conversation history, and test different inputs.
+
+**Note**: The DevUI will automatically discover agent definitions in the specified directory and make them available for interactive testing.
+
 ## Project Structure
 
 ```

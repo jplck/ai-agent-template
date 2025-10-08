@@ -23,6 +23,7 @@ from pydantic import BaseModel
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 from agent_framework import AgentRunUpdateEvent, WorkflowBuilder, WorkflowOutputEvent
+import logging
 
 # Load environment variables from .env file
 load_dotenv()
@@ -154,10 +155,7 @@ workflow = (
 
 def main():
     """Launch the branching workflow in DevUI."""
-    import logging
-
-    from agent_framework.devui import serve
-
+    
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logger = logging.getLogger(__name__)
 
@@ -168,8 +166,6 @@ def main():
     logger.info("- Path 1 (score >= 80): Reviewer → Publisher → Summarizer")
     logger.info("- Path 2 (score < 80): Reviewer → Editor → Publisher → Summarizer")
     logger.info("- Both paths converge at Summarizer for final report")
-
-    serve(entities=[workflow], port=8093, auto_open=True, tracing_enabled=True)
 
 
 if __name__ == "__main__":

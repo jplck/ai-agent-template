@@ -1,0 +1,3 @@
+agent-framework-devui==1.0.0b251007
+agent-framework==1.0.0b251007
+python-dotenv

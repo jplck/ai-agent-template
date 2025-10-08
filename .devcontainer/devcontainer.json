@@ -20,7 +20,8 @@
                 "github.vscode-github-actions",
                 "github.copilot",
                 "ms-python.black-formatter",
-                "ms-toolsai.jupyter"
+                "ms-toolsai.jupyter",
+                "ms-windows-ai-studio.windows-ai-studio"
             ]
         },
         "codespaces": {

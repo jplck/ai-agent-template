@@ -5,8 +5,64 @@ A template for building AI agents using Azure AI Foundry and the Agent Framework
 ## Features
 
 - **Azure AI Foundry**: Leverages Azure's AI services for agent orchestration
+- **Agent Framework DevUI**: Interactive web interface for testing and debugging agents
 - **Infrastructure as Code**: Bicep templates for reproducible Azure deployments
 - **Dev Container**: Pre-configured development environment
+
+## Quick Start with DevUI
+
+The fastest way to start experimenting with agents is using the **Agent Framework DevUI** - an interactive web interface for building, testing, and debugging your AI agents.
+
+### Prerequisites
+
+- Python 3.12+
+- Azure subscription with access to Azure AI Foundry
+
+### Get Started in 3 Steps
+
+1. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Set up your environment** (see [full setup guide](#getting-started) for Azure deployment)
+   ```bash
+   # Create a .env file with your Azure AI credentials
+   PROJECT_ENDPOINT="your-endpoint-url"
+   PROJECT_API_KEY="your-api-key"
+   ```
+
+3. **Launch the DevUI**
+   ```bash
+   devui ./src --port=8093
+   ```
+
+The DevUI will open in your browser at `http://localhost:8093`, where you can:
+- 🧪 **Test agents interactively** with a chat interface
+- 🔍 **Debug workflows** and inspect agent responses
+- 📊 **View conversation history** and trace execution
+- ⚡ **Iterate quickly** without writing test code
+
+### DevUI Command Options
+
+```bash
+# Basic usage
+devui ./src --port=8093
+
+# Custom configuration
+devui ./src --port=8080 --no-auto-open --host=0.0.0.0
+
+# Available options:
+# --port        Port number (default: 8000)
+# --host        Host address (default: 127.0.0.1)
+# --auto-open   Auto-open browser (default: true)
+```
+
+---
+
+## Full Setup Guide
+
+For a complete Azure deployment with infrastructure provisioning:
 
 ## Prerequisites
 
@@ -83,13 +139,23 @@ Or if using the dev container, this should already be done via the `postCreateCo
 
 ### 5. Run the Application
 
-#### Option A: Run Directly
+#### Recommended: DevUI (Interactive Web Interface)
+
+The **DevUI** provides the best development experience with an interactive web interface for testing agents:
+
+```bash
+devui ./src --port=8093
+```
+
+See the [Quick Start with DevUI](#quick-start-with-devui) section above for more details and options.
+
+#### Alternative: Run Python Script Directly
 
 ```bash
 python src/app.py
 ```
 
-#### Option B: Debug with VS Code
+#### Alternative: Debug with VS Code
 
 1. Open `src/app.py` in VS Code
 2. Press **F5** or click **Run > Start Debugging**
@@ -115,19 +181,6 @@ The launch configuration is defined in `.vscode/launch.json`:
   ]
 }
 ```
-
-#### Option C: Run DevUI via CLI
-
-You can also launch the Agent Framework DevUI directly from the command line without writing code. The DevUI provides an interactive web interface for testing and debugging your agents.
-
-```bash
-# Run DevUI pointing to your agents directory
-devui ./src --port=8093
-```
-
-Once started, the DevUI will be available at `http://localhost:8093` (or your specified port). You can interact with your agents through the web interface, view conversation history, and test different inputs.
-
-**Note**: The DevUI will automatically discover agent definitions in the specified directory and make them available for interactive testing.
 
 ## Project Structure
 

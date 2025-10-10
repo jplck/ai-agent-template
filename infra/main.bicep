@@ -7,13 +7,27 @@ param logAnalyticsName string = '${environmentName}-loganalytics'
 param applicationInsightsName string = '${environmentName}-appinsights'
 
 var deployments = {
-  gpt4: {
+  gpt41: {
     name: 'gpt-4.1'
     properties: {
       model: {
         format: 'OpenAI'
         name: 'gpt-4.1'
         version: '2025-04-14'
+      }
+      sku: {
+        name: 'GlobalStandard'
+        capacity: 20
+      }
+    }
+  }
+  gpto3mini: {
+    name: 'o3-mini'
+    properties: {
+      model: {
+        format: 'OpenAI'
+        name: 'o3-mini'
+        version: '2025-01-31'
       }
       sku: {
         name: 'GlobalStandard'

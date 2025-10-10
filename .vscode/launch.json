@@ -2,10 +2,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Workflow-Sample",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/agents/editor/app.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
             "name": "Agent-Sample",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/app.py",
+            "program": "${workspaceFolder}/src/agents/agents_as_tools/agent.py",
             "console": "integratedTerminal",
             "justMyCode": false,
             "env": {

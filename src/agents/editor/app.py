@@ -152,7 +152,6 @@ workflow = (
     .build()
 )
 
-
 def main():
     """Launch the branching workflow in DevUI."""
     
@@ -166,7 +165,6 @@ def main():
     logger.info("- Path 1 (score >= 80): Reviewer → Publisher → Summarizer")
     logger.info("- Path 2 (score < 80): Reviewer → Editor → Publisher → Summarizer")
     logger.info("- Both paths converge at Summarizer for final report")
-
 
 if __name__ == "__main__":
     main()
